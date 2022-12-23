@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace _03._Wild_Zoo
@@ -27,14 +27,10 @@ namespace _03._Wild_Zoo
 
             Console.WriteLine("Animals:");
             foreach (var animal in animals)
-            {
                 Console.WriteLine($"{animal.Key} -> {animal.Value.getFood()}g");
-            }
             Console.WriteLine("Areas with hungry animals:");
             foreach (var hungryAnimal in hungryAnimals)
-            {
                 Console.WriteLine($"{hungryAnimal.Key}: {hungryAnimal.Value}");
-            }
         }
         public class Animal
         {
@@ -94,9 +90,7 @@ namespace _03._Wild_Zoo
             }
 
             if (!hungryAnimals.ContainsKey(area))
-            {
                 hungryAnimals.Add(area, 1);
-            }
             else
             {
                 var countValue = hungryAnimals[area];
@@ -113,9 +107,7 @@ namespace _03._Wild_Zoo
                 int foodNeeded = animal.getFood();
                 int feedResult = foodNeeded - foodQuantity;
                 if (feedResult > 0)
-                {
                     animal.setFood(feedResult);
-                }
                 else
                 {
                     Console.WriteLine($"{name} was successfully fed");
@@ -123,9 +115,7 @@ namespace _03._Wild_Zoo
                     int value = hungryAnimals[livingArea];
                     hungryAnimals.Add(livingArea, value - 1);
                     if (hungryAnimals[livingArea] == 0)
-                    {
                         hungryAnimals.Remove(livingArea);
-                    }
                 }
                 animals.Remove(name);
             }
